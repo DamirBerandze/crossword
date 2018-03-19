@@ -6,10 +6,10 @@
 
 int Checker(char Words[][16]);
 
-int Main; //èíäåêñ ãëàâíîãî ñëîâà
-int arrayOtherWords[3];//èíäåêñû îñòàëüíûõ ñëîâ
-int arrayMain_symbolIndex[3];// ìåñòà ïåðåñå÷åíèÿ íà ãëàâíîì ñëîâå
-int arrayOther_symbolIndex[3];//ìåñòà ïåðåñå÷åíèÿ íà îñòàëüíûõ ñëîâàõ
+int Main; //Ð¸Ð½Ð´ÐµÐºÑ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ ÑÐ»Ð¾Ð²Ð°
+int arrayOtherWords[3];//Ð¸Ð½Ð´ÐµÐºÑÑ‹ Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ñ… ÑÐ»Ð¾Ð²
+int arrayMain_symbolIndex[3];// Ð¼ÐµÑÑ‚Ð° Ð¿ÐµÑ€ÐµÑÐµÑ‡ÐµÐ½Ð¸Ñ Ð½Ð° Ð³Ð»Ð°Ð²Ð½Ð¾Ð¼ ÑÐ»Ð¾Ð²Ðµ
+int arrayOther_symbolIndex[3];//Ð¼ÐµÑÑ‚Ð° Ð¿ÐµÑ€ÐµÑÐµÑ‡ÐµÐ½Ð¸Ñ Ð½Ð° Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ñ… ÑÐ»Ð¾Ð²Ð°Ñ…
 
 main()
 {
@@ -18,34 +18,34 @@ main()
 	
 	char Words[4][16];
 	
-	//--------------------------------------Ââîä
-	puts("Êðîññâîðä");
+	//--------------------------------------Ð’Ð²Ð¾Ð´
+	puts("ÐšÑ€Ð¾ÑÑÐ²Ð¾Ñ€Ð´");
 	
 	protect:
 	
 	puts("-------------------");
-	puts("Ââåäèòå ÷åòûðå ñëîâà äëèííîé îò ïÿòè äî ïÿòíàäöàòè áóêâ");
+	puts("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡ÐµÑ‚Ñ‹Ñ€Ðµ ÑÐ»Ð¾Ð²Ð° Ð´Ð»Ð¸Ð½Ð½Ð¾Ð¹ Ð¾Ñ‚ Ð¿ÑÑ‚Ð¸ Ð´Ð¾ Ð¿ÑÑ‚Ð½Ð°Ð´Ñ†Ð°Ñ‚Ð¸ Ð±ÑƒÐºÐ²");
 	
 	for(short int op = 0; op != 4; op++)
 	{
 		scanf("%s",Words[op]);
-		if((strlen(Words[op]) > 15)||(strlen(Words[op]) < 5)) //Ïðîâåðêà ñëîâ (äëèíà)
+		if((strlen(Words[op]) > 15)||(strlen(Words[op]) < 5)) //ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÑÐ»Ð¾Ð² (Ð´Ð»Ð¸Ð½Ð°)
 		{
-	    	puts("Ýòî ñëîâî íå ïîäõîäèò ïîä çàäàííûé èíòåðâàë.\n");
+	    	puts("Ð­Ñ‚Ð¾ ÑÐ»Ð¾Ð²Ð¾ Ð½Ðµ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚ Ð¿Ð¾Ð´ Ð·Ð°Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ð¸Ð½Ñ‚ÐµÑ€Ð²Ð°Ð».\n");
 	    	Sleep(500);
-	    	puts("Ïîïðîáóé åù¸ ðàç...");
+	    	puts("ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·...");
 	    	Sleep(500);
 	    	goto protect;
 		}
 	}
 					
-	if(Checker(Words) == 0)	puts("Íåâîçìîæíî ñîñòàâèòü êðîññîâðä.");
+	if(Checker(Words) == 0)	puts("ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÑ€Ð¾ÑÑÐ¾Ð²Ñ€Ð´.");
 	else
 	{
 		
 		char Cross[30][15];
 		
-		//---Î÷èñòêà
+		//---ÐžÑ‡Ð¸ÑÑ‚ÐºÐ°
 		for(int i = 0; i < 30; i++)
 		{
 			for(int j = 0; j < 15; j++)
@@ -60,7 +60,7 @@ main()
 		if(arrayOther_symbolIndex[2] > variable)	variable = arrayOther_symbolIndex[2];
 		
 		
-		for(int i = 0;i < strlen(Words[Main]); i++)		Cross[variable][i] = Words[Main][i];  //íàïèñàíèå ãëàâíîãî ñëîâà
+		for(int i = 0;i < strlen(Words[Main]); i++)		Cross[variable][i] = Words[Main][i];  //Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ ÑÐ»Ð¾Ð²Ð°
 	
 		for(int i = 0;i < strlen(Words[arrayOtherWords[0]]); i++)	Cross[variable - arrayOther_symbolIndex[0] + i][arrayMain_symbolIndex[0]] = Words[arrayOtherWords[0]][i];
 		
@@ -70,16 +70,16 @@ main()
 		
 		for(int i = 0;i < strlen(Words[Main]); i++)
 		{
-            if(Cross[variable][i] != Words[Main][i])
+                        if(Cross[variable][i] != Words[Main][i])
 			{
-				puts("Íåâîçìîæíî ñîñòàâèòü êðîññîâðä.");
+				puts("ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐ¾ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÑ€Ð¾ÑÑÐ¾Ð²Ñ€Ð´.");
 				system("pause");
 				return 0;
 			}
-        }
+                }
 		
-		//-----Âûâîä
-		puts("---------------------\n      Ðåçóëüòàò\n---------------------");
+		//-----Ð’Ñ‹Ð²Ð¾Ð´
+		puts("---------------------\n      Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚\n---------------------");
 		for(int i = 0; i < variable+15; i++)
 		{
 			for(int j = 0; j < 15; j++)
